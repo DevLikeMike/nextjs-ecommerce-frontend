@@ -5,28 +5,33 @@ import router from "next/router";
 import Hamburger from "./Hamburger";
 import SideNav from "./SideNav";
 import AuthContext from "@/context/AuthContext";
+// External imports
 import {
   FaSignOutAlt,
   FaSignInAlt,
   FaUser,
   FaShoppingCart,
+  FaTshirt,
 } from "react-icons/fa";
-// External imports
 import styled from "styled-components";
 
 const Navbar = styled.nav`
+  padding: 0 7.5vw;
   width: 100vw;
   height: 3rem;
   position: fixed;
   top: 0;
   display: flex;
-  justify-content: flex-end;
-  background-color: ${({ theme }) => theme.primaryYellow};
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${({ theme }) => theme.primary400};
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   z-index: 100;
-  @media (min-width: 768px) {
-    justify-content: flex-end;
+  @media (max-width: 900px) {
     padding: 0 3rem;
+  }
+  @media (max-width: 500px) {
+    padding: 0 1rem;
   }
 `;
 
@@ -34,7 +39,7 @@ const NavList = styled.ul`
   height: 3rem;
   color: #333;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 10px;
 `;
@@ -44,14 +49,16 @@ const NavItem = styled.li`
   align-items: center;
   list-style: none;
   padding: 0 1rem;
-  font-size: 1.333rem;
+  font-size: 1.25rem;
+  border-radius: 8px;
   height: 80%;
   display: none;
-  color: #fff;
+  color: #333;
   transition: background-color 0.3s ease;
 
   &:hover {
-    color: #333;
+    color: #fff;
+    background-color: ${({ theme }) => theme.primary600};
   }
 
   a {
@@ -84,6 +91,9 @@ export default function Header() {
 
   return (
     <Navbar>
+      <FaTshirt
+        style={{ fontSize: "2rem", color: "white", justifySelf: "flex-start" }}
+      />
       <NavList>
         <NavItem>
           <Link href='/'>

@@ -7,7 +7,7 @@ function Layout({ title, children }) {
     <>
       <Head>
         <title>{title}</title>
-        <meta name='title' content='Coffee Cabinet' />
+        <meta name='title' content='TechShirt Tshirts' />
       </Head>
       <Header />
       {children}
@@ -19,5 +19,5 @@ function Layout({ title, children }) {
 export default Layout;
 
 Layout.defaultProps = {
-  title: "Coffee Cabinet",
+  title: "TechShirt Tshirts",
 };

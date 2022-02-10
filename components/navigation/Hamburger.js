@@ -20,7 +20,7 @@ const Bar = styled.span`
   height: 3px;
   position: absolute;
   left: 0;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 8px;
   transform: rotate(0deg);
   transition: 0.24s ease-in-out;
