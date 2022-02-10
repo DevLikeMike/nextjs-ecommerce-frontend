@@ -4,7 +4,12 @@ const Form = styled.div`
   max-width: 500px;
   margin: 6rem auto 0;
   padding: 30px;
-  box-shadow: 0px 10px 20px 0px rgba(50, 50, 50, 0.52);
+  box-shadow: 5px 10px 20px 0 rgb(0 0 0 / 20%);
+  border-radius: 5px;
+
+  h1 {
+    font-size: 2rem;
+  }
 
   label {
     display: block;
@@ -22,16 +27,21 @@ const Form = styled.div`
   }
 
   input[type="submit"] {
+    padding: 0.25rem 1rem;
     margin-top: 20px;
     width: 100%;
     font-size: 1.2rem;
     border: none;
-    background-color: ${({ theme }) => theme.primaryYellow};
-    padding: 0.25rem 1rem;
+    background-color: ${({ theme }) => theme.primary400};
     border-radius: 5px;
-    color: #333;
-    padding: 3rem auto;
+    color: #000;
     height: auto;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(0.98);
+      background-color: ${({ theme }) => theme.primary200};
+    }
   }
 
   form {
@@ -40,6 +50,10 @@ const Form = styled.div`
 
   div {
     margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 0.85rem;
   }
 `;
 

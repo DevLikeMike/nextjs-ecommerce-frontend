@@ -25,7 +25,7 @@ const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.primary400};
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid hsla(0, 0%, 85.1%, 0.46);
   z-index: 100;
   @media (max-width: 900px) {
     padding: 0 3rem;

@@ -8,5 +8,5 @@
 [X] Link Strapi to frontend
 [X] Set up Layout for \_app
 [X] Set up header (primary color with #333 text, #fff while hover) and navigation
-[] Set Up Auth form (primary color)
+[X] Set Up Auth form (primary color)
 [] Establish design for homepage (figma)
