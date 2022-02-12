@@ -9,7 +9,7 @@ export default async (req, res) => {
     const { identifier, password } = req.body;
 
     // Send post req to strapi when app/api/login is hit
-    const strapiRes = await fetch(`${API_URL}/auth/local`, {
+    const strapiRes = await fetch(`${API_URL}/api/auth/local`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

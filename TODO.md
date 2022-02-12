@@ -10,3 +10,11 @@
 [X] Set up header (primary color with #333 text, #fff while hover) and navigation
 [X] Set Up Auth form (primary color)
 [] Establish design for homepage (figma)
+
+### Backend
+
+[X] Register a user
+[X] Login as a user
+[X] Logout
+
+#### All routes for auth in postman

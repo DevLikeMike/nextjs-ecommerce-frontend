@@ -7,7 +7,7 @@ export default async (req, res) => {
     const { username, email, password } = req.body;
 
     // POST to strapi
-    const strapiRes = await fetch(`${API_URL}/auth/local/register`, {
+    const strapiRes = await fetch(`${API_URL}/api/auth/local/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -16,12 +16,6 @@ export default async (req, res) => {
         username,
         email,
         password,
-        shippingAddress: {
-          country: "",
-          city: "",
-          address: "",
-          postalCode: "",
-        },
       }),
     });
 

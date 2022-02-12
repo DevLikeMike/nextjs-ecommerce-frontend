@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
     if (res.ok) {
       setUser(data.user);
-      router.push("/account/dashboard");
+      router.push("/");
     } else {
       setError(data.message);
       setError(null);
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
 
     if (res.ok) {
       setUser(data.user);
-      router.push("/account/dashboard");
+      router.push("/");
     } else {
       setError(data.message);
       setError(null);
