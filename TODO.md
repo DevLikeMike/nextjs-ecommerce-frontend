@@ -9,7 +9,7 @@
 [X] Set up Layout for \_app
 [X] Set up header (primary color with #333 text, #fff while hover) and navigation
 [X] Set Up Auth form (primary color)
-[] Establish design for homepage (figma)
+[X] Establish design for homepage (figma)
 
 ### Backend
 
@@ -18,3 +18,11 @@
 [X] Logout
 
 #### All routes for auth in postman
+
+### 12/15 Frontend day
+
+[X] Add hero section to index page
+[/] Build items component / items container (same component?)
+[] Have functional link on item component to redirect to item page
+[X] Add item to index page
+[] Build Item page
