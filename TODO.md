@@ -22,7 +22,8 @@
 ### 12/15 Frontend day
 
 [X] Add hero section to index page
-[/] Build items component / items container (same component?)
-[] Have functional link on item component to redirect to item page
+[X] Build items component / items container
+[X] Have functional link on item component to redirect to item page
 [X] Add item to index page
-[] Build Item page
+[X] Build Item page
+[X] Style item page

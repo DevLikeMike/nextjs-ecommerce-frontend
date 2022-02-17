@@ -8,12 +8,19 @@ export default function ProductPage({ product }) {
   // Init states
   const [cartItem, setcartItem] = useState({});
   const [size, setSize] = useState("medium");
+  const [qty, setQty] = useState(1);
 
   // Init context
   //   const { addCartItem } = useContext(CartContext);
 
   // Init router
   const router = useRouter();
+
+  // Destruct from product
+  const { Name, Price, Description, inStock } = product.attributes;
+
+  const { url: photoURL } =
+    product.attributes.photo.data.attributes.formats.large;
 
   // Update cartItem on size change
   //   useEffect(() => {
@@ -31,42 +38,62 @@ export default function ProductPage({ product }) {
   const sizeHandler = (e) => {
     setSize(e.target.value);
   };
+  const qtyHandler = (e) => {
+    setQty(e.target.value);
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    addCartItem(cartItem);
-    router.push("/cart");
+    console.log("submitted");
+    // addCartItem(cartItem);
+    // router.push("/cart");
   };
 
   return (
-    <Layout>
-      <main className='mt-3 beverage'>
-        <h1 className='text-center'>{coffee.name}</h1>
-        <div className='image_container'>
-          <img src={coffee.image.formats.large.url} alt={coffee.name} />
+    <div className='product-page-wrapper'>
+      <div className='product__image-container'>
+        <img src={`${API_URL}${photoURL}`} alt={Name} />
+      </div>
+      <div className='product__content-container'>
+        <h1>{Name}</h1>
+        <p className='description'>{Description}</p>
+        <div className='price-stock flex ai-fe jc-sb'>
+          <p className='price'>${Price}</p>
+          <p className={`inStock ${inStock} text-center`}>
+            {inStock ? "In Stock" : "Out Of Stock"}
+          </p>
         </div>
-        <div className='price'>${coffee.price.toFixed(2)}</div>
-        <p className='content'>{coffee.description}</p>
+
         <form onSubmit={submitHandler}>
+          <label htmlFor='size'>Size</label>
           <select name='size' id='size' onChange={sizeHandler}>
             <option value='small'>Small</option>
             <option value='medium'>Medium</option>
             <option value='large'>Large</option>
           </select>
+          <label htmlFor='quantity'>Quantity</label>
+          <select name='quantity' id='quantity' onChange={qtyHandler}>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+          </select>
           <input type='submit' value='Add to cart' />
         </form>
-      </main>
-    </Layout>
+      </div>
+    </div>
   );
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await fetch(`${API_URL}//api/tshirts?filters[slug][$eq]=${slug}`);
+  const res = await fetch(
+    `${API_URL}/api/tshirts?filters[slug][$eq]=${slug}&populate=*`
+  );
   const products = await res.json();
+  const product = products.data[0];
 
   return {
     props: {
-      product: products[0],
+      product,
     },
   };
 }

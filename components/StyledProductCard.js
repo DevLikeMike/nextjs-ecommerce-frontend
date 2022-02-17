@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { API_URL } from "@/config/index";
+import { useRouter } from "next/router";
 import { Image } from "next/image";
 
 const Card = styled.div`
@@ -85,12 +86,18 @@ const Card = styled.div`
 `;
 
 export default function StyledProductCard({ product }) {
-  const { Name, Price, Slug, Description } = product.attributes;
+  // Init Router
+  const router = useRouter();
+
+  const { Name, Price, slug, Description } = product.attributes;
 
   const { url: photoURL } =
     product.attributes.photo.data.attributes.formats.medium;
 
-  console.log(photoURL);
+  const clickHandler = (e) => {
+    e.preventDefault();
+    router.push(`/shirts/${slug}`);
+  };
 
   return (
     <Card>
@@ -100,7 +107,7 @@ export default function StyledProductCard({ product }) {
       <div className='card--content-container'>
         <h4>{Name}</h4>
         <p>{Description}</p>
-        <button>
+        <button onClick={clickHandler}>
           <span>Shop Now</span>
         </button>
       </div>
