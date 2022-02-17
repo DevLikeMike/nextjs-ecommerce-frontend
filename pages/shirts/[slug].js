@@ -11,7 +11,7 @@ export default function ProductPage({ product }) {
   const [qty, setQty] = useState(1);
 
   // Init context
-  //   const { addCartItem } = useContext(CartContext);
+  const { addCartItem } = useContext(CartContext);
 
   // Init router
   const router = useRouter();
@@ -23,16 +23,15 @@ export default function ProductPage({ product }) {
     product.attributes.photo.data.attributes.formats.large;
 
   // Update cartItem on size change
-  //   useEffect(() => {
-  //     setcartItem({
-  //       name: coffee.name,
-  //       quantity: 1,
-  //       id: coffee.id,
-  //       price: coffee.price,
-  //       size: size,
-  //       image: coffee.image,
-  //     });
-  //   }, [size]);
+  useEffect(() => {
+    setcartItem({
+      name: Name,
+      quantity: qty,
+      price: Price,
+      size: size,
+      image: `${API_URL}${photoURL}`,
+    });
+  }, [size]);
 
   // Handlers
   const sizeHandler = (e) => {
@@ -45,8 +44,8 @@ export default function ProductPage({ product }) {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("submitted");
-    // addCartItem(cartItem);
-    // router.push("/cart");
+    addCartItem(cartItem);
+    router.push("/cart");
   };
 
   return (

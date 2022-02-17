@@ -4,11 +4,10 @@ import StyledProductContainer from "@/components/StyledProductContainer";
 import StyledProductCard from "@/components/StyledProductCard";
 
 export default function Home({ returnedProducts: products }) {
-  console.log(products);
   return (
     <div>
       <StyledHero />
-      <h2>Start Shopping!</h2>
+      <h2 style={{ fontWeight: "200" }}>Our Top Picks</h2>
       <StyledProductContainer>
         {products.length === 0 && <h3>No Products :</h3>}
         {products.map((product) => (

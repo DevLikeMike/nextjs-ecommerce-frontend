@@ -40,7 +40,7 @@ const StyledHero = styled.section`
   }
 
   .content--button {
-    background: ${({ theme }) => theme.primary600};
+    background: ${({ theme }) => theme.primary400};
     color: white;
     font-family: inherit;
     padding: 0.35em;

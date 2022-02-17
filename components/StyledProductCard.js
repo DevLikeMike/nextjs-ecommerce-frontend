@@ -42,6 +42,15 @@ const Card = styled.div`
     gap: 1rem;
     height: calc(33.5rem - 300px);
 
+    h4 {
+      transition: all ease 0.4s text-decoration;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
     button {
       margin-top: auto;
       margin-bottom: 1rem;
@@ -102,10 +111,10 @@ export default function StyledProductCard({ product }) {
   return (
     <Card>
       <div className='card--image-container'>
-        <img src={`${API_URL}${photoURL}`} alt={Name} />
+        <img src={`${API_URL}${photoURL}`} alt={Name} onClick={clickHandler} />
       </div>
       <div className='card--content-container'>
-        <h4>{Name}</h4>
+        <h4 onClick={clickHandler}>{Name}</h4>
         <p>{Description}</p>
         <button onClick={clickHandler}>
           <span>Shop Now</span>

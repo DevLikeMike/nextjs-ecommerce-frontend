@@ -3,6 +3,7 @@ export const theme = {
   desktop: "900px",
   mdMobile: "768px",
   smMobile: "500px",
+  maxSize: "87.5rem",
   // Generic Colors
   lightGray: "#55535380",
   medGray: "#292929",
