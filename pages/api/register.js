@@ -16,6 +16,7 @@ export default async (req, res) => {
         username,
         email,
         password,
+        shippingAddress: {},
       }),
     });
 

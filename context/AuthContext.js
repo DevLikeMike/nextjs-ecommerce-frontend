@@ -88,10 +88,29 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const editUserInformation = async (user) => {};
+  const editUserShipping = async (shippingAddress, user) => {
+    const res = await fetch(`${NEXT_URL}/api/updateUser`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        shippingAddress: shippingAddress,
+        id: user.id,
+      }),
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      setUser(data.user);
+      router.push("/review");
+    }
+  };
 
   return (
-    <AuthContext.Provider value={{ user, error, register, login, logout }}>
+    <AuthContext.Provider
+      value={{ user, error, register, login, logout, editUserShipping }}
+    >
       {children}
     </AuthContext.Provider>
   );

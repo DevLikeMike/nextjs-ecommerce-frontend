@@ -1,0 +1,147 @@
+.cart {
+  max-width: 50rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-auto-flow: column;
+  margin-bottom: 1rem;
+
+  &__img-container {
+    width: 15rem;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      max-height: 10rem;
+    }
+  }
+  &__content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+    }
+
+    .size {
+      text-transform: uppercase;
+    }
+    button {
+      width: 10rem;
+      height: 2rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      margin-top: auto;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 1px 6px 0 rgb(34 34 34 / 35%);
+      }
+    }
+  }
+  &__qty-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    p {
+      margin-top: 0.5rem;
+      font-weight: 400;
+      font-size: 1.5rem;
+    }
+
+    form {
+      select {
+        margin-bottom: 1rem;
+        margin-left: auto;
+        height: 3rem;
+        padding: 0.5rem 1rem;
+        box-shadow: 0 1px 6px 0 rgb(34 34 34 / 15%);
+        border: 1px solid rgba(34, 34, 34, 0.15);
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all ease 0.2s;
+        min-width: 3rem;
+        display: block;
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: 0 1px 6px 0 rgb(34 34 34 / 35%);
+        }
+      }
+
+      input[type="submit"] {
+        width: auto;
+        height: 2rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 30px;
+        transition: all 0.2s ease;
+        margin-top: auto;
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: 0 1px 6px 0 rgb(34 34 34 / 35%);
+        }
+      }
+    }
+  }
+}
+
+// cart page styles
+.cartHeader {
+  margin: 2.5rem 0;
+  h1 {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  a {
+    transition: all 0.2s ease;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.order-btn {
+  max-height: 3rem;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  background-color: $primary--400;
+  color: white;
+  padding: 0.5rem 1rem;
+  width: 10rem;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 1px 6px 0 rgb(34 34 34 / 35%);
+  }
+}
+
+// Review stlyes
+.total {
+  padding-top: 1rem;
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .order-btn {
+    width: 15rem;
+    max-height: 8rem;
+    height: 4rem;
+  }
+}

@@ -5,7 +5,6 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   // Initial State
-  const [shippingAddress, setShippingAddress] = useState({});
   let cartItemsFromStorage;
 
   // Check for Items in localstorage
@@ -47,12 +46,38 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const updateQty = (item, newQuantity) => {
+    // Verify Item is in cart
+    const itemExists = cartItems.find(
+      (cartItem) => cartItem.id === item.id && cartItem.size === item.size
+    );
+
+    // If item does exists, then add the quantities together.
+    if (itemExists) {
+      setCartItems(
+        cartItems.map((cartItem) => {
+          if (
+            cartItem.id === itemExists.id &&
+            cartItem.size === itemExists.size
+          ) {
+            itemExists.quantity = newQuantity;
+            return itemExists;
+          } else {
+            return cartItem;
+          }
+        })
+      );
+    } else {
+      // If item does not exist then just add it to cart
+      // Every time an item is added to cart, save it to local storage
+      setCartItems([...cartItems, item]);
+    }
+  };
+
   // Set local storage cartItems
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [addCartItem]);
-
-  const router = useRouter();
 
   // Delete item from cart
   const deleteCartItem = (item) => {
@@ -75,7 +100,13 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addCartItem, deleteCartItem, shippingAddress }}
+      value={{
+        cartItems,
+        addCartItem,
+        deleteCartItem,
+        updateQty,
+        saveShippingAddress,
+      }}
     >
       {children}
     </CartContext.Provider>

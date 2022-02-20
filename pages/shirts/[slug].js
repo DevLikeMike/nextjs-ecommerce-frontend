@@ -18,7 +18,7 @@ export default function ProductPage({ product }) {
 
   // Destruct from product
   const { Name, Price, Description, inStock } = product.attributes;
-
+  const { id } = product;
   const { url: photoURL } =
     product.attributes.photo.data.attributes.formats.large;
 
@@ -29,6 +29,7 @@ export default function ProductPage({ product }) {
       quantity: qty,
       price: Price,
       size: size,
+      id: id,
       image: `${API_URL}${photoURL}`,
     });
   }, [size]);
@@ -43,7 +44,7 @@ export default function ProductPage({ product }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("submitted");
+    console.log(cartItem);
     addCartItem(cartItem);
     router.push("/cart");
   };
