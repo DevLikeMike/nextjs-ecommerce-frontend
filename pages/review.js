@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import CartContext from "@/context/CartContext";
 import CartItem from "@/components/CartItem";
+import PayBTN from "@/components/Paybtn";
 import Link from "next/link";
 
 export default function Review() {
@@ -79,9 +80,7 @@ export default function Review() {
 
       <div className='total flex jc-c ai-fe col'>
         <p>Total: ${total}</p>
-        <button className='order-btn' onClick={{}}>
-          Process Payment
-        </button>
+        <PayBTN itemsFromCart={cartItems} />
       </div>
     </>
   );

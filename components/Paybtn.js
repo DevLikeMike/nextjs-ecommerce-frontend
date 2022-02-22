@@ -26,7 +26,7 @@ const payHandler = async (itemsFromCart) => {
   const { token } = await res.json();
 
   // Strapi request for Order - create
-  const strapiRes = await fetch(`${API_URL}/orders`, {
+  const strapiRes = await fetch(`${API_URL}/api/orders`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
