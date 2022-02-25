@@ -27,3 +27,10 @@
 [X] Add item to index page
 [X] Build Item page
 [X] Style item page
+
+### 12/22
+
+[X] Success page with useEffect to confirm payment success and update the order to paid
+[] Working order fetch and confirmation on success page
+[X] Update the backend to change the order information and redirect to success page
+[X] STRAPI migration from v3 to v4
