@@ -7,8 +7,10 @@ export const OrderProvider = ({ children }) => {
   const [order, setOrder] = useState(null);
   const [orders, setOrders] = useState(null);
 
-  const getUserOrders = async () => {
-    const res = await fetch(`${NEXT_URL}/api/userOrders`);
+  const getUserOrders = async (user) => {
+    const res = await fetch(`${NEXT_URL}/api/userOrders`, {
+      headers: { id: `${user.id}` },
+    });
     const data = await res.json();
 
     if (res.ok) {

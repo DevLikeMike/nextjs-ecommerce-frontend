@@ -19,7 +19,7 @@
 
 #### All routes for auth in postman
 
-### 12/15 Frontend day
+### 2/15 Frontend day
 
 [X] Add hero section to index page
 [X] Build items component / items container
@@ -28,9 +28,18 @@
 [X] Build Item page
 [X] Style item page
 
-### 12/22
+### 2/22
 
 [X] Success page with useEffect to confirm payment success and update the order to paid
-[] Working order fetch and confirmation on success page
+[X] Working order fetch and confirmation on success page
 [X] Update the backend to change the order information and redirect to success page
 [X] STRAPI migration from v3 to v4
+
+### 3/1 User Page
+
+[X] Create user dashboard
+[] Display all user orders (from stripe via payment intent?)
+
+- http://localhost:1337/api/orders?filters[userID][$eq]=2&populate=\*
+  [x] Create single order page
+  [] Allow user to cancel order

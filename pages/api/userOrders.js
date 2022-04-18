@@ -9,16 +9,29 @@ export default async (req, res) => {
       return;
     }
 
+    // Get token from headers using cookie
     const { token } = cookie.parse(req.headers.cookie);
 
-    const strapiRes = await fetch(`${API_URL}/orders`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    // Get user Id from headers - sent as head because we are using a get request
+    const { id } = req.headers;
 
-    const orders = await strapiRes.json();
+    /*******************************
+     * GET - @strapiAPI/api/orders - filted by userID
+     * Private
+     * Get all orders created by a user
+     ******************************/
+    const strapiRes = await fetch(
+      `${API_URL}/api/orders?filters[userID][$eq]=${id}&populate=*`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const userOrders = await strapiRes.json();
+    const { data: orders } = userOrders;
 
     if (strapiRes.ok) {
       res.status(200).json({ orders });
