@@ -60,7 +60,6 @@ export const AuthProvider = ({ children }) => {
       router.push("/");
     } else {
       setError(data.message);
-      setError(null);
     }
   };
 

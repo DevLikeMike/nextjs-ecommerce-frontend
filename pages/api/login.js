@@ -25,7 +25,6 @@ export default async (req, res) => {
 
     if (strapiRes.ok) {
       // Set Cookie using cookie npm package
-      console.log(data);
       res.setHeader(
         "Set-Cookie",
         cookie.serialize("token", data.jwt, {
@@ -39,10 +38,11 @@ export default async (req, res) => {
 
       res.status(200).json({ user: data.user });
     } else {
+      console.log(data);
       res
-        .status(data.statusCode)
+        .status(data.error.status)
         // Strapi has odd error message, lots of drilling
-        .json({ message: data.message[0].messages[0].message });
+        .json({ message: data.error.message });
     }
   } else {
     // Only allow post req
