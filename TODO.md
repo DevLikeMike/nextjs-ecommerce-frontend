@@ -38,7 +38,7 @@
 ### 3/1 User Page
 
 [X] Create user dashboard
-[] Display all user orders (from stripe via payment intent?)
+[X] Display all user orders (from stripe via payment intent?)
 
 - http://localhost:1337/api/orders?filters[userID][$eq]=2&populate=\*
   [x] Create single order page

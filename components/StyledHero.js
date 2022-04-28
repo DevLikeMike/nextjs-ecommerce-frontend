@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const StyledHero = styled.section`
   background-image: url("/hero.jpg");
@@ -94,6 +95,14 @@ const StyledHero = styled.section`
 `;
 
 export default function Hero() {
+  // Init Router
+  const router = useRouter();
+
+  const clickHandler = (e) => {
+    e.preventDefault();
+    router.push("/shirts");
+  };
+
   return (
     <StyledHero>
       <div className='hero--content-wrapper'>
@@ -102,7 +111,7 @@ export default function Hero() {
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
           aperiam nemo facere optio sint animi odio architecto! Quod, quas hic?
         </p>
-        <button className='content--button'>
+        <button className='content--button' onClick={clickHandler}>
           {" "}
           Shop Now
           <div className='icon'>

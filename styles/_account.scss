@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
+  gap: 3rem;
 
   h1 {
     font-size: 2.85rem;
@@ -13,6 +14,13 @@
 
   .user__previousOrders {
     grid-area: 1/2/2/3;
+    h2 {
+      margin-top: 0;
+    }
+
+    .orderItem:nth-child(odd) {
+      background-color: #ddd;
+    }
   }
 
   .user__info {

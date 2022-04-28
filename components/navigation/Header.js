@@ -128,8 +128,8 @@ export default function Header() {
           </NavItem>
 
           <NavItem>
-            <Link href='/menu'>
-              <a>Menu</a>
+            <Link href='/shirts'>
+              <a>Shop Now!</a>
             </Link>
           </NavItem>
 
