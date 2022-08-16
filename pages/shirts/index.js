@@ -16,7 +16,7 @@ export default function Shirts({ returnedProducts: products }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`${API_URL}/api/tshirts?populate=*`);
   let products = await res.json();
   let returnedProducts = products.data;

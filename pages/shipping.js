@@ -15,12 +15,13 @@ export default function Shipping() {
   // Context init and destruct
   const { user, editUserShipping } = useContext(AuthContext);
 
-  let {
-    city: userCity,
-    state: userState,
-    zip: userZipCode,
-    street: userStreet,
-  } = user.shippingAddress;
+  // let {
+  //   city: userCity,
+  //   state: userState,
+  //   zip: userZipCode,
+  //   street: userStreet,
+  // } = user.shippingAddress;
+
   // Set Shipping Address local state on change of other variables.
   useEffect(() => {
     setShippingAddress({
@@ -33,7 +34,7 @@ export default function Shipping() {
 
   // Make sure a user is signed in, if not redirect to login page. Change local shipping state to user shipping saved in db
   useEffect(() => {
-    if (user) {
+    if (user)
       if (user.shippingAddress !== {}) {
         setShippingAddress({
           city: userCity,
@@ -41,8 +42,10 @@ export default function Shipping() {
           street: userStreet,
           zip: userZipCode,
         });
+      } else {
+        setShippingAddress({});
       }
-    } else {
+    else {
       router.push("/account/login");
     }
   }, []);
@@ -65,7 +68,7 @@ export default function Shipping() {
           onChange={(e) => {
             setCity(e.target.value);
           }}
-          placeholder={userCity ? `${userCity}` : ""}
+          placeholder={city ? `${userCity}` : ""}
           required
         />
 
@@ -76,7 +79,7 @@ export default function Shipping() {
           onChange={(e) => {
             setState(e.target.value);
           }}
-          placeholder={userState ? `${userState}` : ""}
+          placeholder={state ? `${userState}` : ""}
           required
         />
 
@@ -87,7 +90,7 @@ export default function Shipping() {
           onChange={(e) => {
             setStreet(e.target.value);
           }}
-          placeholder={userStreet ? `${userStreet}` : ""}
+          placeholder={street ? `${userStreet}` : ""}
           required
         />
 
@@ -98,7 +101,7 @@ export default function Shipping() {
           onChange={(e) => {
             setZipCode(e.target.value);
           }}
-          placeholder={userZipCode ? `${userZipCode}` : ""}
+          placeholder={zipCode ? `${userZipCode}` : ""}
           required
         />
 
