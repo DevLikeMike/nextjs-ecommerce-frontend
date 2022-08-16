@@ -18,7 +18,7 @@ export default function dashboard() {
       setUsername(user.username);
       getUserOrders(user);
     }
-  }, [user]);
+  }, [user, getUserOrders]);
 
   // Submit handler hit register api route
   const handleSubmit = (e) => {
