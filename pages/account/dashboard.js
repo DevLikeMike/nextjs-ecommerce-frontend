@@ -3,7 +3,7 @@ import Link from "next/link";
 import AuthContext from "@/context/AuthContext";
 import OrderContext from "@/context/OrderContext";
 
-export default function dashboard() {
+export default function Dashboard() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [newPassword, setNewPassword] = useState("");

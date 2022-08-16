@@ -1,8 +1,9 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { API_URL } from "@/config/index";
 import Link from "next/link";
 
-const userOrder = (session_id) => {
+const UserOrder = (session_id) => {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -42,7 +43,7 @@ const userOrder = (session_id) => {
 
 export default function SuccessPage({ session_id }) {
   // Destruct info from the strapi request via custom hook
-  const { order, loading } = userOrder(session_id);
+  const { order, loading } = UserOrder(session_id);
 
   return (
     <div className='flex col success'>
