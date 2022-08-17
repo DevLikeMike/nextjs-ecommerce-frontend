@@ -6,7 +6,7 @@ import { API_URL } from "@/config/index";
 export default async (req, res) => {
   if (req.method === "GET") {
     if (!req.headers.cookie) {
-      res.status(403).json({ message: "Not Authorized" });
+      res.status(403).json({ message: "Not Authorized - api/user" });
       return;
     }
 

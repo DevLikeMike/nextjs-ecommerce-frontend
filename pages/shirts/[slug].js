@@ -86,7 +86,7 @@ export default function ProductPage({ product }) {
 
 export async function getServerSideProps({ query: { slug } }) {
   const res = await fetch(
-    `${API_URL}/api/tshirts?filters[slug][$eq]=${slug}&populate=*`
+    `https://nextjs-ecom-tshirt.herokuapp.com/api/tshirts?filters[slug][$eq]=${slug}&populate=*`
   );
   const products = await res.json();
   const product = products.data[0];

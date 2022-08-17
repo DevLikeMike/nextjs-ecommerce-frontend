@@ -17,12 +17,13 @@ export default function Shirts({ returnedProducts: products }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}/api/tshirts?populate=*`);
+  const res = await fetch(
+    `https://nextjs-ecom-tshirt.herokuapp.com/api/tshirts?populate=*`
+  );
   let products = await res.json();
   let returnedProducts = products.data;
 
   return {
     props: { returnedProducts },
-    revalidate: 1,
   };
 }
